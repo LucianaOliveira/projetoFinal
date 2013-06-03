@@ -25,7 +25,7 @@ public class FuncionariosDao {
     public void addFuncionarios(Funcionarios funcionarios){
         PreparedStatement ps = null;
         
-        String sql = "insert into funcionarios (nome,cpf,rg,cargo,endereco,telefone,status,comissao)";
+        String sql = "insert into funcionarios (nome,cpf,rg,cargo,endereco,telefone,status,comissao) values(?,?,?,?,?,?,?,?,)";
         
         try{
             

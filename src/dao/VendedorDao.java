@@ -19,7 +19,7 @@ public class VendedorDao {
     public void addVendedor(Vendedor vendedor){
         
         PreparedStatement ps = null;
-        String sql = "insert into vendedor (cod_vendedor, nome,comissao)";
+        String sql = "insert into vendedor (cod_vendedor, nome,comissao) values(?,?,?)";
         
         try{
             
@@ -92,6 +92,7 @@ public class VendedorDao {
            ex.printStackTrace();
        }
     }
+}
         
         
     

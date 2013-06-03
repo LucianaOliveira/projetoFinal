@@ -27,7 +27,7 @@ public class produtosDao {
         
         PreparedStatement ps = null;
         
-        String sql = "insert into produtos(codigo, nome, descrição,estoque, preço,status, tipo)";
+        String sql = "insert into produtos(codigo, nome, descrição,estoque, preço,status, tipo) values(?,?,?,?,?,?,?)";
         
         try{
             ps = con.prepareStatement(sql);

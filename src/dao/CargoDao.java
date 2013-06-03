@@ -12,16 +12,19 @@ import model.Cargo;
 public class CargoDao {
     
     private Connection con = ConectaBanco.getConexao();
+    VendedorDao vendedorDao = new VendedorDao();
+    OutrasFuncoesDao outrasfuncoesDao = new OutrasFuncoesDao();
     
     public void addCargo(Cargo cargo){
         PreparedStatement ps = null;
         
-        String sql = "insert into cargo(nomecargo) values(?)";
+        String sql = "insert into cargo(nomecargo, vendedor, outrasfuncoes) values(?,?,?)";
         
         try{
             
             ps = con.prepareStatement(sql);
             ps.setString(1, cargo.getNomecargo());
+            ps.setInt(2, );
             ps.execute();
             
         }catch(SQLException ex){

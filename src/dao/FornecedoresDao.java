@@ -24,7 +24,7 @@ public class FornecedoresDao {
     public void addFornecedores(Fornecedores fornecedores){
         PreparedStatement ps = null;
         
-        String sql = "insert into fornecedores (razaosocial, nomefantasia, cnpj,endereco,telefone, email)";
+        String sql = "insert into fornecedores (razaosocial, nomefantasia, cnpj,endereco,telefone, email) values(?,?,?,?,?,?)";
         
         
         try{

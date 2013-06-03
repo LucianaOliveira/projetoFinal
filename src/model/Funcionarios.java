@@ -14,11 +14,11 @@ public class Funcionarios {
     private Endereco endereco;
     private String telefone;
     private String status;
-    private Double salario;
+    
     
     
     public Funcionarios(String nome, String cpf, String rg, Cargo cargo, 
-             Endereco endereco,String telefone, String status, Double salario){
+             Endereco endereco,String telefone, String status){
         
         this.nome = nome;
         this.cpf = cpf;
@@ -26,9 +26,9 @@ public class Funcionarios {
         this.cargo = cargo;
         this.telefone = telefone;
         this.status = status;
-        this.salario = salario;
         this.endereco = endereco;
-        this.salario = salario;
+       
+        
         
         
     }
@@ -98,17 +98,9 @@ public class Funcionarios {
         this.status = status;
     }
 
+   
 
-    
 
-    public Double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(Double salario) {
-        this.salario = salario;
-    }
-    
     
     
 }

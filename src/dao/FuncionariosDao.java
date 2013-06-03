@@ -21,10 +21,11 @@ public class FuncionariosDao {
     EnderecoDao enderecoDao = new EnderecoDao();
     CargoDao cargoDao = new CargoDao();
     
+    
     public void addFuncionarios(Funcionarios funcionarios){
         PreparedStatement ps = null;
         
-        String sql = "insert into funcionarios (nome,cpf,rg,cargo,endereco,telefone,status,salario)";
+        String sql = "insert into funcionarios (nome,cpf,rg,cargo,endereco,telefone,status,comissao)";
         
         try{
             
@@ -36,7 +37,7 @@ public class FuncionariosDao {
             ps.setInt(5,  enderecoDao.pegarID());
             ps.setString(6, funcionarios.getTelefone());
             ps.setString(7, funcionarios.getStatus());
-            ps.setDouble(8, funcionarios.getSalario());
+            
             ps.execute();
                     
         }catch(SQLException ex){
@@ -93,13 +94,13 @@ public class FuncionariosDao {
             ex.printStackTrace();
         }
         
-        return new Funcionarios(nome, cpf, rg, cargo, endereco, telefone, status, salario);
+        return new Funcionarios(nome, cpf, rg, cargo, endereco, telefone, status);
         
     }
     
     public void updateFuncionariosByCpf(Funcionarios funcionarios){
         PreparedStatement ps = null;
-        String sql = "update funcionarios set nome=?, rg=?,cargo=?, endereco=?,telefone=?, status=?,salario=? where cpf =?";
+        String sql = "update funcionarios set nome=?, rg=?,cargo=?, endereco=?,telefone=?, status=? where cpf =?";
         
         try{
             ps = con.prepareStatement(sql);
@@ -110,7 +111,7 @@ public class FuncionariosDao {
             ps.setInt(5, enderecoDao.pegarID());
             ps.setString(6, funcionarios.getTelefone());
             ps.setString(7, funcionarios.getStatus());
-            ps.setDouble(8, funcionarios.getSalario());
+            
             
         }catch(SQLException ex){
             ex.printStackTrace();

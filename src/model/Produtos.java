@@ -7,26 +7,39 @@ package model;
  */
 public class Produtos {
     
+    private Integer codigo;
     private String nome;
     private String descrição;
     private EstoqueProduto estoque;
     private Double preço;
-    private boolean status;
+    private String status;
+    private String tipo;
     
-    public Produtos(String nome, String descrição, EstoqueProduto estoque,
-            Double preço,boolean status){
-        
+    public Produtos(Integer codigo, String nome, String descrição, EstoqueProduto estoque,
+            Double preço,String status,String tipo){
+        this.codigo = codigo;
         this.nome = nome;
         this.descrição = descrição;
         this.estoque = estoque;
         this.preço = preço;
         this.status = status;
+        this.tipo = tipo;
         
     }
 
     public Produtos() {
     }
 
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+
+    
     public String getNome() {
         return nome;
     }
@@ -59,14 +72,23 @@ public class Produtos {
         this.preço = preço;
     }
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
-    
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+  
     
     
 }

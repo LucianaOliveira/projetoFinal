@@ -22,7 +22,7 @@ public class EnderecoDao {
     public void addEndereco(Endereco endereco){
         PreparedStatement ps = null;
         
-        String sql = "insert into Endereco(rua,numero,cep,complemento,bairro,cidade ) values (?,?,?,?,?,?)";
+        String sql = "insert into Endereco(rua,numero,cep,complemento,bairro,cidade,estado ) values (?,?,?,?,?,?,?)";
         
         
         try{
@@ -33,6 +33,7 @@ public class EnderecoDao {
             ps.setString(5, endereco.getComplemento());
             ps.setString(6, endereco.getBairro());
             ps.setString(7, endereco.getCidade());
+            ps.setString(8, endereco.getEstado());
             ps.execute();
             
             
@@ -96,6 +97,7 @@ public class EnderecoDao {
         String complemento = null;
         String bairro = null;
         String cidade = null;
+        String estado = null;
         
         try{
             rua = rs.getString(2);
@@ -104,13 +106,14 @@ public class EnderecoDao {
             complemento = rs.getString(5);
             bairro = rs.getString(6);
             cidade = rs.getString(7);
+            estado = rs.getString(8);
             
             
         }catch(SQLException ex){
             ex.printStackTrace();
             
         }
-        return new Endereco(rua, numero, cep, complemento, bairro, cidade, endereco);
+        return new Endereco(rua, numero, cep, complemento, bairro, cidade, endereco, estado);
         
         
     }
@@ -118,7 +121,7 @@ public class EnderecoDao {
     public void updateEnderecoByCep(Endereco endereco){
         
         PreparedStatement ps = null;
-        String sql = "update endereco set rua=?, numero=?, complemento=?, bairro=?, cidade=? where cep=?";
+        String sql = "update endereco set rua=?, numero=?, complemento=?, bairro=?, cidade=?,estado=? where cep=?";
         
         
         try{
@@ -128,7 +131,9 @@ public class EnderecoDao {
             ps.setString(3, endereco.getComplemento());
             ps.setString(4, endereco.getBairro());
             ps.setString(5, endereco.getCidade());
-            ps.setString(6, endereco.getCep());
+            ps.setString(6, endereco.getEstado());
+            ps.setString(7, endereco.getCep());
+            
             
             
         }catch(SQLException ex){

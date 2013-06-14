@@ -36,6 +36,26 @@ public class VendedorDao {
         
     }
     
+    public int codVendedor(){
+        String sql = "select cod_vendedor from vendedor order by cod_vendedor";
+        ResultSet rs = null;
+        
+        try{
+            PreparedStatement psConsulta = con.prepareStatement(sql);
+            rs = psConsulta.executeQuery();
+            int cod_vendedor;
+            rs.next();
+            cod_vendedor = rs.getInt("cod_vendedor");
+            return cod_vendedor;
+            
+        }catch(SQLException ex){
+            System.out.println("Erro ao inserir codigo vendedor");
+            
+        }return 0;
+        
+        
+    }
+    
     public ArrayList<Vendedor> getVendedores(){
         ArrayList<Vendedor> vendedores = new ArrayList<>();
         

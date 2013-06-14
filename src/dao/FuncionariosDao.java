@@ -59,7 +59,7 @@ public class FuncionariosDao {
             rs = ps.executeQuery();
             
             while(rs.next()){
-                funcionario.add(getFuncionarioFromSql(sql));
+                funcionario.add(getFuncionarioFromSql(rs));
                 
             }
             
@@ -119,7 +119,7 @@ public class FuncionariosDao {
         }
     }
 
-    private Funcionarios getFuncionarioFromSql(String sql) {
+    private Funcionarios getFuncionarioFromSql(ResultSet sql) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Cargo;
+import model.OutrasFuncoes;
+import model.Vendedor;
 
 
 public class CargoDao {
@@ -24,7 +26,8 @@ public class CargoDao {
             
             ps = con.prepareStatement(sql);
             ps.setString(1, cargo.getNomecargo());
-            ps.setInt(2, );
+            ps.setInt(2,vendedorDao.codVendedor() );
+            ps.setInt(3, outrasfuncoesDao.CodOF());
             ps.execute();
             
         }catch(SQLException ex){
@@ -34,7 +37,7 @@ public class CargoDao {
         
     }
 
- /**   static String nomecargo() {
+    public String nomecargo() {
         String sql = "select nomecargo from cargo";
         ResultSet rs = null;
         
@@ -52,7 +55,7 @@ public class CargoDao {
             System.out.println("Erro ao tentar pegar nomecargo!");
             
         }return null;
-    } */
+    } 
     
     public ArrayList<Cargo> getCargos(){
         ArrayList<Cargo> cargos = new ArrayList<>();
@@ -66,7 +69,7 @@ public class CargoDao {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
-                cargos.add(getCargoFromSql(rs));
+                cargos.add(getCargosFromSql(rs));
             }
             
         }catch(SQLException ex){
@@ -77,29 +80,36 @@ public class CargoDao {
     
     
 
-    private Cargo getCargoFromSql(ResultSet rs) {
+    private Cargo getCargoFromSql(ResultSet rs, int codVendedor, int codOF) {
         
         String nomecargo = null;
+        Vendedor vendedor = null;
+        OutrasFuncoes outrasfuncoes = null;
         
         try{
             nomecargo = rs.getString(2);
+            codVendedor = rs.getInt(3);
+            codOF = rs.getInt(4);
+            
             
         }catch(SQLException ex){
             ex.printStackTrace();
         }
-        return new Cargo(nomecargo);
+        return new Cargo(nomecargo, vendedor, outrasfuncoes);
         
     }
     
     public void updateCargoByNomecargo(Cargo cargo){
         
         PreparedStatement ps = null;
-        String sql = "update cargo set nomecargo=? where nomecargo=?";
+        String sql = "update cargo set vendedor=?,outrasfuncoes=? where nomecargo=?";
         
         try{
             
             ps = con.prepareStatement(sql);
-            ps.setString(1, cargo.getNomecargo());
+            ps.setInt(1, vendedorDao.codVendedor());
+            ps.setInt(2, outrasfuncoesDao.CodOF());
+            ps.setString(3, cargo.getNomecargo());
             
             
         }catch(SQLException ex){
@@ -108,8 +118,12 @@ public class CargoDao {
         
     }
 
-    String nomecargo() {
+    private Cargo getCargosFromSql(ResultSet rs) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
+
+    
     
 }

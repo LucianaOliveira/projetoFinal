@@ -36,6 +36,28 @@ public class OutrasFuncoesDao {
         }
         
     }
+    
+    public int CodOF(){
+        
+        String sql ="select cod from outrasfuncoes order by cod";
+        ResultSet rs = null;
+        
+        try{
+            PreparedStatement psConsulta = con.prepareStatement(sql);
+            rs = psConsulta.executeQuery();
+            int cod;
+            rs.next();
+            cod = rs.getInt("cod");
+            return cod;
+            
+        }catch(SQLException ex){
+            System.out.println("Erro ao inserir codigo do funcionario");
+            
+        }return 0;
+        
+    }
+    
+    
     public ArrayList<OutrasFuncoes> getOutraFuncao(){
         ArrayList<OutrasFuncoes> outrafuncao = new ArrayList<>();
         

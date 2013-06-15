@@ -15,6 +15,8 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -31,39 +33,59 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuCadClientes = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuCadFuncionarios = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuFornecedores = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuCadFornecedores = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuCadProdutos = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jRelatorios = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Revenda de Cosmeticos");
+
+        jDesktopPane1.setBackground(new java.awt.Color(153, 102, 255));
+        jDesktopPane1.setForeground(new java.awt.Color(255, 0, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(188, 47, 222));
 
         jMenu1.setText("Clientes");
         jMenu1.add(jSeparator5);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem1.setText("Cadastro");
-        jMenu1.add(jMenuItem1);
+        jMenuCadClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        jMenuCadClientes.setText("Cadastro");
+        jMenuCadClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadClientesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuCadClientes);
         jMenu1.add(jSeparator6);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
@@ -75,9 +97,14 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.setText("Funcionários");
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem3.setText("Cadastro");
-        jMenu2.add(jMenuItem3);
+        jMenuCadFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        jMenuCadFuncionarios.setText("Cadastro");
+        jMenuCadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadFuncionariosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuCadFuncionarios);
         jMenu2.add(jSeparator2);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
@@ -92,14 +119,42 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenuFornecedores.setText("Fornecedores");
-        jMenuBar1.add(jMenuFornecedores);
+        jMenuCadFornecedores.setText("Fornecedores");
 
-        jMenu3.setText("Produtos");
-        jMenuBar1.add(jMenu3);
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem5.setText("Cadastro");
+        jMenuCadFornecedores.add(jMenuItem5);
+        jMenuCadFornecedores.add(jSeparator4);
+
+        jMenu4.setText("Lista Fornecedores");
+
+        jMenuItem6.setText("Lista de Fornecedores");
+        jMenu4.add(jMenuItem6);
+
+        jMenuItem7.setText("Alterar");
+        jMenu4.add(jMenuItem7);
+
+        jMenuCadFornecedores.add(jMenu4);
+
+        jMenuBar1.add(jMenuCadFornecedores);
+
+        jMenuCadProdutos.setText("Produtos");
+
+        jMenuItem1.setText("Cadastro");
+        jMenuCadProdutos.add(jMenuItem1);
+        jMenuCadProdutos.add(jSeparator7);
+
+        jMenuBar1.add(jMenuCadProdutos);
 
         jRelatorios.setText("Relatorios");
         jMenuBar1.add(jRelatorios);
+
+        jMenu5.setText("Usuários");
+
+        jMenuItem8.setText("jMenuItem8");
+        jMenu5.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu5);
 
         jSair.setText("Sair");
         jMenuBar1.add(jSair);
@@ -123,6 +178,14 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadClientesActionPerformed
+        new CadClientes().setVisible(true);
+    }//GEN-LAST:event_jMenuCadClientesActionPerformed
+
+    private void jMenuCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadFuncionariosActionPerformed
+        new CadFuncionarios().setVisible(true);
+    }//GEN-LAST:event_jMenuCadFuncionariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,20 +225,29 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuFornecedores;
+    private javax.swing.JMenuItem jMenuCadClientes;
+    private javax.swing.JMenu jMenuCadFornecedores;
+    private javax.swing.JMenuItem jMenuCadFuncionarios;
+    private javax.swing.JMenu jMenuCadProdutos;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jRelatorios;
     private javax.swing.JMenu jSair;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
     // End of variables declaration//GEN-END:variables
 }

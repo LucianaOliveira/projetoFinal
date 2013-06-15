@@ -61,10 +61,10 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelRua" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldRua" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                                      <Component id="jLabelRua" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldRua" min="-2" pref="189" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabelNumero" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextFieldNumero" min="-2" pref="83" max="-2" attributes="0"/>
@@ -131,9 +131,9 @@
                       <Component id="jTextFieldTelefone" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelRS" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelDados" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelRS" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -166,7 +166,7 @@
                       <Component id="jTextFieldCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="71" max="32767" attributes="0"/>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -179,6 +179,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabelRS">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Raz&#xe3;o Social:"/>
           </Properties>
         </Component>
@@ -186,6 +189,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelNomeFantasia">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nome Fantasia:"/>
           </Properties>
         </Component>
@@ -193,6 +199,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelDados">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="CNPJ/CPF:"/>
           </Properties>
         </Component>
@@ -200,6 +209,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelTelefone">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
         </Component>
@@ -207,11 +219,17 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCadastrar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAlterar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Alterar Dados"/>
           </Properties>
         </Component>
@@ -219,11 +237,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelRua">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Rua:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelNumero">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
           </Properties>
         </Component>
@@ -231,6 +255,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCEP">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="CEP:"/>
           </Properties>
         </Component>
@@ -238,6 +265,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelComplemento">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Complemento:"/>
           </Properties>
         </Component>
@@ -245,6 +275,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelBairro">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Bairro:"/>
           </Properties>
         </Component>
@@ -252,6 +285,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelUF">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="UF:"/>
           </Properties>
         </Component>
@@ -259,6 +295,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cidade:"/>
           </Properties>
         </Component>

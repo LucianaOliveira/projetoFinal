@@ -23,7 +23,7 @@ class ConectaBanco {
             return null;        
         
     }
-        String caminho = "jdbc:postgresql://localhost:5432/projeto";
+        String caminho = "jdbc:postgresql://localhost:5432/projetoPOO";
         
         try{
             con = DriverManager.getConnection(caminho, "postgres", "post");

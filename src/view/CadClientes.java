@@ -15,6 +15,9 @@ public class CadClientes extends javax.swing.JInternalFrame {
      */
     public CadClientes() {
         initComponents();
+        
+        
+        
     }
 
     /**
@@ -52,30 +55,43 @@ public class CadClientes extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextFieldCidade = new javax.swing.JTextField();
 
+        jLabelRS.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelRS.setText("Razão Social:");
 
+        jLabelNomeFantasia.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelNomeFantasia.setText("Nome Fantasia:");
 
+        jLabelDados.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelDados.setText("CNPJ/CPF:");
 
+        jLabelTelefone.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelTelefone.setText("Telefone:");
 
+        jButtonCadastrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
 
+        jButtonAlterar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonAlterar.setText("Alterar Dados");
 
+        jLabelRua.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelRua.setText("Rua:");
 
+        jLabelNumero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelNumero.setText("Número:");
 
+        jLabelCEP.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelCEP.setText("CEP:");
 
+        jLabelComplemento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelComplemento.setText("Complemento:");
 
+        jLabelBairro.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelBairro.setText("Bairro:");
 
+        jLabelUF.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelUF.setText("UF:");
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel1.setText("Cidade:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -104,8 +120,8 @@ public class CadClientes extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelRua)
-                                    .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24)
+                                    .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelNumero)
                                     .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -153,9 +169,9 @@ public class CadClientes extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldNF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelRS)
-                    .addComponent(jLabelDados))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelDados)
+                    .addComponent(jLabelRS))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldRS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,7 +198,7 @@ public class CadClientes extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAlterar)
                     .addComponent(jButtonCadastrar))
@@ -230,4 +246,6 @@ public class CadClientes extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldRua;
     private javax.swing.JTextField jTextFieldTelefone;
     // End of variables declaration//GEN-END:variables
+
+    
 }

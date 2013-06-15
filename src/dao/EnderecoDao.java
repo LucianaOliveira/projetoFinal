@@ -44,7 +44,7 @@ public class EnderecoDao {
             ex.printStackTrace();
         }
     }
-    public int pegarID(){
+    public Integer pegarID(){
         
         String sql = "select id_endereco from endereco order by id_endereco";
         ResultSet rs = null;
@@ -89,7 +89,7 @@ public class EnderecoDao {
         }return enderecos;
     }
     
-    private Endereco getEnderecoFromSql(ResultSet rs, int endereco){
+    private Endereco getEnderecoFromSql(ResultSet rs, int id_endereco){
         
         String rua = null;
         String numero = null;
@@ -100,6 +100,7 @@ public class EnderecoDao {
         String estado = null;
         
         try{
+            
             rua = rs.getString(2);
             numero = rs.getString(3);
             cep = rs.getString(4);
@@ -113,7 +114,7 @@ public class EnderecoDao {
             ex.printStackTrace();
             
         }
-        return new Endereco(rua, numero, cep, complemento, bairro, cidade, endereco, estado);
+        return new Endereco(rua, numero, cep, complemento, bairro, cidade, id_endereco, estado);
         
         
     }

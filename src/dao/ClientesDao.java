@@ -40,7 +40,7 @@ public class ClientesDao {
         
     }
     
-    public ArrayList<Clientes> getCliente(){
+    public ArrayList<Clientes> getCliente(int id_endereco){
         ArrayList<Clientes> cliente = new ArrayList<>();
         
         ResultSet rs = null;
@@ -50,7 +50,8 @@ public class ClientesDao {
              ps = con.prepareStatement(sql);
              rs = ps.executeQuery();
              while(rs.next()){
-                 cliente.add(getClienteFromSql(rs));
+                 cliente.add(getClienteFromSql(rs, id_endereco));
+                 
              }
              
          }catch(SQLException ex){
@@ -110,9 +111,9 @@ public class ClientesDao {
         }
     }
 
-    private Clientes getClienteFromSql(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+
+    
     
     
     

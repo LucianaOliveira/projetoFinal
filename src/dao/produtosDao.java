@@ -27,13 +27,14 @@ public class produtosDao {
         
         PreparedStatement ps = null;
         
-        String sql = "insert into produtos(codigo, nome, descrição,estoque, preço,status, tipo) values(?,?,?,?,?,?,?)";
+        String sql = "insert into produtos(codigo, nome, descrição,cod_estoque, preço,status, tipo) values(?,?,?,?,?,?,?)";
         
         try{
             ps = con.prepareStatement(sql);
             ps.setInt(1, produtos.getCodigo());
             ps.setString(2, produtos.getNome());
             ps.setString(3, produtos.getDescrição());
+            ps.setInt(4, estoqueprodutoDao.codEstoque());
             ps.setDouble(5, produtos.getPreço());
             ps.setString(6, produtos.getStatus());
             ps.setString(7, produtos.getTipo());
@@ -70,7 +71,7 @@ public class produtosDao {
     
 }
     
-    private Produtos getProdutoFromSql(ResultSet rs,int IDEstoque){
+    private Produtos getProdutoFromSql(ResultSet rs,int CodEstoque){
         
         Integer codigo = null;
         String nome = null;
@@ -84,7 +85,7 @@ public class produtosDao {
             codigo = rs.getInt(2);
             nome = rs.getString(3);
             descricao = rs.getString(4);
-            IDEstoque = rs.getInt(5);
+            CodEstoque = rs.getInt(5);
             preco = rs.getDouble(6);
             status = rs.getString(7);
             tipo = rs.getString(8);
@@ -108,7 +109,7 @@ public class produtosDao {
             ps.setInt(1, produtos.getCodigo());
             ps.setString(2, produtos.getNome());
             ps.setString(3, produtos.getDescrição());
-            ps.setInt(4, estoqueprodutoDao.IDEstoque());
+            ps.setInt(4, estoqueprodutoDao.codEstoque());
             ps.setDouble(5, produtos.getPreço());
             ps.setString(6, produtos.getStatus());
             ps.setString(7, produtos.getTipo());
@@ -122,13 +123,14 @@ public class produtosDao {
         }
         
     }
-    
-    
-    
 
     private Produtos getProdutoFromSql(ResultSet rs) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    
+
     
     
 }

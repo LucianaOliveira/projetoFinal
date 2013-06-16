@@ -73,9 +73,11 @@ public class FornecedoresDao {
     
 }
     
-    private Fornecedores getFornecedorFromSQL(ResultSet rs, int pegarID){
+  
         
-        String razaosocial = null;
+ 
+    private Fornecedores getFornecedorFromSql(ResultSet rs) {
+               String razaosocial = null;
         String nomefantasia = null;
         String cnpj = null;
         String telefone = null;
@@ -92,15 +94,23 @@ public class FornecedoresDao {
             razaosocial = rs.getString(2);
             nomefantasia = rs.getString(3);
             cnpj = rs.getString(4);
-            pegarID = rs.getInt(5);
-            telefone = rs.getString(6);
-            email = rs.getString(7);
+            telefone = rs.getString(5);
+            email = rs.getString(6);
+            rua = rs.getString(7);
+            numero = rs.getString(8);
+            cep = rs.getString(9);
+            complemento =  rs.getString(10);
+            bairro = rs.getString(11);
+            cidade = rs.getString(12);
+            estado = rs.getString(13);
+            
             
             
             
         }catch(SQLException ex){
             ex.printStackTrace();
         }
+        Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
         return new Fornecedores(razaosocial, nomefantasia, cnpj, endereco, telefone, email);
     }
     
@@ -108,27 +118,23 @@ public class FornecedoresDao {
     public void updateFornecedoresByCnpj(Fornecedores fornecedores){
         
         PreparedStatement ps = null;
-        String sql = "update fornecedores set razaosocial=?, nomefantasia=?, endereco=?, telefone=?, email=? where cnpj=?";
+        String sql = "update fornecedores set razaosocial=? where cnpj=?";
         
         try{
             ps = con.prepareStatement(sql);
             ps.setString(1, fornecedores.getRazaosocial());
-            ps.setString(2, fornecedores.getNomefantasia());
-            ps.setString(3, fornecedores.getCnpj());
-            ps.setInt(4, enderecoDao.pegarID());
-            ps.setString(5, fornecedores.getTelefone());
-            ps.setString(6, fornecedores.getEmail());
+            ps.setString(2, fornecedores.getCnpj());
+           
             
             
         }catch(SQLException ex){
             ex.printStackTrace();
         }
     }
+}
     
 
-    private Fornecedores getFornecedorFromSql(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
     
 }

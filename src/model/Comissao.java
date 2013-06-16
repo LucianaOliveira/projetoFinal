@@ -22,6 +22,24 @@ public class Comissao {
 
     public Comissao() {
     }
+
+    public String getComissao() {
+        return comissao;
+    }
+
+    public void setComissao(String comissao) {
+        this.comissao = comissao;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
+
+    
     
     
     

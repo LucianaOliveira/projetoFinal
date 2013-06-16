@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import model.Comissao;
 import model.Endereco;
 import model.Vendedor;
 
@@ -19,10 +20,12 @@ public class VendedorDao {
     
     private Connection con = ConectaBanco.getConexao();
     private EnderecoDao enderecoDao = new EnderecoDao();
+    private ComissaoDao comissaoDao = new ComissaoDao();
     
     public Integer addVendedor(Vendedor vendedor){
         
         Integer id_endereco = enderecoDao.addEndereco(vendedor.getEndereco());
+        String comissao = comissaoDao.addComissao(vendedor.getComissao());
         
         
         PreparedStatement ps = null;
@@ -39,6 +42,7 @@ public class VendedorDao {
             ps.setInt(6, id_endereco);
             ps.setDate(7, new Date(vendedor.getDatanascimento().getTime()));
             ps.setDate(8, new Date(vendedor.getDataadmissao().getTime()));
+            ps.setString(9, comissao);          
             ps.execute();
             JOptionPane.showMessageDialog(null, "Vendendor cadastrado com sucesso!");
             
@@ -90,7 +94,7 @@ public class VendedorDao {
         String bairro = null;
         String cidade = null;
         String estado = null;
-        Double comissao = null;
+        String comissao = null;
         
         try{
             nome = rs.getString(2);
@@ -106,16 +110,18 @@ public class VendedorDao {
             bairro = rs.getString(12);
             cidade = rs.getString(13);
             estado = rs.getString(14);
-            comissao = rs.get
+            comissao = rs.getString(15);
             
-            comissao = rs.getDouble(3);
+            
+            
             
             
         }catch(SQLException ex){
             ex.printStackTrace();
         }
         Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
-        return new Vendedor(cod_vendedor, nome, cpf, rg, endereco, telefone, datanascimento, dataadmissao, null)
+        Comissao comissao = new Comissao(estado, null);
+        return new Vendedor(cod_vendedor, nome, cpf, rg, endereco, telefone, datanascimento, dataadmissao, comissao);
 
    
     }

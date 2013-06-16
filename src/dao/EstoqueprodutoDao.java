@@ -22,12 +22,12 @@ public class EstoqueprodutoDao {
     
     private Connection con = ConectaBanco.getConexao();
     
-    public void addEstoqueProduto(EstoqueProduto estoqueproduto){
+    public Integer addEstoqueProduto(EstoqueProduto estoqueproduto){
         
         PreparedStatement ps = null;
         String sql = "insert into estoqueproduto(codestoque, quantidade) values (?,?)";
         try {
-            ps = con.prepareCall(sql);
+            ps = con.prepareStatement(sql);
             ps.setInt(1, estoqueproduto.getCodestoque());
             ps.setInt(2, estoqueproduto.getQuantidade());
             ps.execute();
@@ -35,27 +35,11 @@ public class EstoqueprodutoDao {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return null;
     }
+    
         
-    public int codEstoque(){
-             
-         
-        String sql = "select codestoque from estoqueproduto order by codestoque";
-        ResultSet rs = null;
-        
-        try {
-            PreparedStatement psConsulta = con.prepareStatement(sql);
-            rs = psConsulta.executeQuery();
-            int codestoque;
-            rs.next();
-            codestoque = rs.getInt("codestoque");
-            return codestoque;
-            
-        } catch (SQLException ex) {
-            System.out.println("Erro ao pegar codigo do estoque");
-        }return 0;
-        
-    }
+    
     public ArrayList <EstoqueProduto> getEstoqueprodutos(){
         
         ArrayList<EstoqueProduto> estoqueprodutos = new ArrayList<>();
@@ -75,15 +59,16 @@ public class EstoqueprodutoDao {
             
         }return estoqueprodutos;
         
-    }
+}
 
-    private EstoqueProduto getEstoqueprodutosFromSql(ResultSet rs, int codestoque) {
-        
+
+    private EstoqueProduto getEstoqueprodutosFromSql(ResultSet rs) {
+        Integer codestoque = null;
         Integer quantidade = null;
         
        
         try{
-            
+            codestoque = rs.getInt(1);
             quantidade = rs.getInt(2);
             
         }catch(SQLException ex){
@@ -107,12 +92,11 @@ public class EstoqueprodutoDao {
         }
     }
 
-    private EstoqueProduto getEstoqueprodutosFromSql(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
     
 
     
     
     
-}
+

@@ -22,9 +22,11 @@ public class EstoqueProduto {
         return codestoque;
     }
 
-    public void setCodestoque(Integer cod_estoque) {
+    public void setCodestoque(Integer codestoque) {
         this.codestoque = codestoque;
     }
+
+ 
 
     public Integer getQuantidade() {
         return quantidade;

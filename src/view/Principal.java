@@ -19,6 +19,9 @@ public class Principal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,17 +46,20 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuCadFornecedores = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItemCadFornecedores = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuCadProdutos = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemCadProdutos = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemListaProd = new javax.swing.JMenuItem();
         jRelatorios = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItemCadUsuarios = new javax.swing.JMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemListaUsuarios = new javax.swing.JMenuItem();
         jSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,9 +127,14 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuCadFornecedores.setText("Fornecedores");
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem5.setText("Cadastro");
-        jMenuCadFornecedores.add(jMenuItem5);
+        jMenuItemCadFornecedores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItemCadFornecedores.setText("Cadastro");
+        jMenuItemCadFornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadFornecedoresActionPerformed(evt);
+            }
+        });
+        jMenuCadFornecedores.add(jMenuItemCadFornecedores);
         jMenuCadFornecedores.add(jSeparator4);
 
         jMenu4.setText("Lista Fornecedores");
@@ -140,9 +151,17 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuCadProdutos.setText("Produtos");
 
-        jMenuItem1.setText("Cadastro");
-        jMenuCadProdutos.add(jMenuItem1);
+        jMenuItemCadProdutos.setText("Cadastro");
+        jMenuItemCadProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadProdutosActionPerformed(evt);
+            }
+        });
+        jMenuCadProdutos.add(jMenuItemCadProdutos);
         jMenuCadProdutos.add(jSeparator7);
+
+        jMenuItemListaProd.setText("Lista de Produtos");
+        jMenuCadProdutos.add(jMenuItemListaProd);
 
         jMenuBar1.add(jMenuCadProdutos);
 
@@ -151,8 +170,12 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu5.setText("Usuários");
 
-        jMenuItem8.setText("jMenuItem8");
-        jMenu5.add(jMenuItem8);
+        jMenuItemCadUsuarios.setText("Cadastro");
+        jMenu5.add(jMenuItemCadUsuarios);
+        jMenu5.add(jSeparator8);
+
+        jMenuItemListaUsuarios.setText("Lista de Usuários");
+        jMenu5.add(jMenuItemListaUsuarios);
 
         jMenuBar1.add(jMenu5);
 
@@ -180,12 +203,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadClientesActionPerformed
+        this.setEnabled(false);
         new CadClientes().setVisible(true);
     }//GEN-LAST:event_jMenuCadClientesActionPerformed
 
     private void jMenuCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadFuncionariosActionPerformed
+        this.setEnabled(false);
         new CadFuncionarios().setVisible(true);
     }//GEN-LAST:event_jMenuCadFuncionariosActionPerformed
+
+    private void jMenuItemCadFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadFornecedoresActionPerformed
+        this.setEnabled(false);
+        new CadFornecedores().setVisible(true);
+    }//GEN-LAST:event_jMenuItemCadFornecedoresActionPerformed
+
+    private void jMenuItemCadProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadProdutosActionPerformed
+        
+        this.setEnabled(false);
+        new CadProdutos().setVisible(true);
+    }//GEN-LAST:event_jMenuItemCadProdutosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,13 +268,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuCadFornecedores;
     private javax.swing.JMenuItem jMenuCadFuncionarios;
     private javax.swing.JMenu jMenuCadProdutos;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItemCadFornecedores;
+    private javax.swing.JMenuItem jMenuItemCadProdutos;
+    private javax.swing.JMenuItem jMenuItemCadUsuarios;
+    private javax.swing.JMenuItem jMenuItemListaProd;
+    private javax.swing.JMenuItem jMenuItemListaUsuarios;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jRelatorios;
     private javax.swing.JMenu jSair;
@@ -249,5 +287,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
     // End of variables declaration//GEN-END:variables
 }

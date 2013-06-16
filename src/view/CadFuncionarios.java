@@ -56,32 +56,52 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
         jButtonCadastrar = new javax.swing.JButton();
         jButtonAlterar = new javax.swing.JButton();
 
+        setTitle("Cadastro de Funcionários");
+
         jLabelNome.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelNome.setText("Nome Completo:");
+
+        jTextFieldNome.setToolTipText("Informe o nome completo do funcionário");
 
         jLabelCPF.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelCPF.setText("CPF:");
 
+        jTextFieldCPF.setToolTipText("Informe o CPF");
+
         jLabelRG.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelRG.setText("RG:");
+
+        jTextFieldRG.setToolTipText("Informe o RG");
 
         jLabelCargo.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelCargo.setText("Cargo:");
 
+        jTextFieldCargo.setToolTipText("Informe o Cargo");
+
         jLabelTelefone.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelTelefone.setText("Telefone:");
+
+        jTextFieldTelefone.setToolTipText("Informe o Telefone");
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel1.setText("Rua:");
 
+        jTextFieldRua.setToolTipText("Informe o nome da rua");
+
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setText("Número:");
+
+        jTextFieldNumero.setToolTipText("Informe o número");
 
         jLabel3.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel3.setText("CEP:");
 
+        jTextFieldCEP.setToolTipText("Informe o CEP");
+
         jLabel4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel4.setText("Complemento:");
+
+        jTextFieldComplemento.setToolTipText("Caso houver,informar o complemento");
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel5.setText("Bairro:");
@@ -89,8 +109,14 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel6.setText("Cidade:");
 
+        jTextFieldBairro.setToolTipText("Informe o bairro");
+
+        jTextFieldCidade.setToolTipText("Informe a cidade");
+
         jLabel7.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel7.setText("UF:");
+
+        jTextFieldEstado.setToolTipText("Informe o estado");
 
         jButtonCadastrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
@@ -209,7 +235,7 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrar)
                     .addComponent(jButtonAlterar))

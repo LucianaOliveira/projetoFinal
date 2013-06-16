@@ -53,14 +53,23 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
         jButtonCadastrar = new javax.swing.JButton();
         jButtonAD = new javax.swing.JButton();
 
+        setTitle("Cadastro de Fornecedores");
+        setToolTipText("Informe o nome da rua");
+
         jLabelNF.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelNF.setText("Nome Fantasia:");
 
+        jTextFieldNF.setToolTipText("Informe o nome fantasia");
+
         jLabelRS.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabelRS.setText("Razão Social:");
+        jLabelRS.setText("* Razão Social:");
+
+        jTextFieldRS.setToolTipText("Informe a razão social do fornecedor");
 
         jLabelCNPJ.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabelCNPJ.setText("CNPJ:");
+        jLabelCNPJ.setText("* CNPJ:");
+
+        jTextFieldCNPJ.setToolTipText("Informe o CNPJ do fornecedor");
 
         jLabelRua.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelRua.setText("Rua:");
@@ -68,11 +77,19 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
         jLabelNumero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelNumero.setText("Número:");
 
+        jTextFieldNumero.setToolTipText("Informe o CEP");
+
         jLabelCEP.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelCEP.setText("CEP:");
 
+        jTextFieldCEP.setToolTipText("Informe o número");
+
         jLabelComplemento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelComplemento.setText("Complemento:");
+
+        jTextFieldComplemento.setToolTipText("Caso tiver,informe o complemento do endereço");
+
+        jTextFieldBairro.setToolTipText("Informe o bairro");
 
         jLabelBairro.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelBairro.setText("Bairro:");
@@ -83,11 +100,19 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
         jLabelTelefone.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelTelefone.setText("Telefone:");
 
+        jTextFieldTelefone.setToolTipText("Informe o número de telefone");
+
+        jTextFieldCidade.setToolTipText("Informe a cidade");
+
         jLabelUF.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelUF.setText("UF:");
 
+        jTextFieldUF.setToolTipText("Informe o estado");
+
         jLabelEmail.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabelEmail.setText("EMAIL:");
+
+        jTextFieldEmail.setToolTipText("Informe o e-mail");
 
         jButtonCadastrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
@@ -111,13 +136,7 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldNF)
                             .addComponent(jTextFieldRS)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelRua)
-                                .addGap(248, 248, 248)
-                                .addComponent(jLabelCEP)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelNumero)
-                                .addGap(63, 63, 63)))
+                            .addComponent(jLabelRua))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,29 +156,37 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelEmail)
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelEmail))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelNumero))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelCEP)
+                                    .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelCidade)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButtonCadastrar)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jButtonAD))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTextFieldUF, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabelCidade)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jButtonCadastrar)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jButtonAD))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jTextFieldUF, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 8, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +239,7 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrar)
                     .addComponent(jButtonAD))

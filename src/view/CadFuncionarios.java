@@ -9,7 +9,7 @@ package view;
  * @author Luciana_2
  */
 public class CadFuncionarios extends javax.swing.JInternalFrame {
-
+    private Principal telaAnterior;
     /**
      * Creates new form CadFuncionarios
      */
@@ -17,6 +17,14 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
         initComponents();
         
        
+    }
+    
+    
+    public CadFuncionarios(Principal telaAnterior){
+        this();
+        //construtor
+        this.telaAnterior = telaAnterior;
+        
     }
 
     /**
@@ -54,7 +62,7 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldEstado = new javax.swing.JTextField();
         jButtonCadastrar = new javax.swing.JButton();
-        jButtonAlterar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
 
         setTitle("Cadastro de Funcionários");
 
@@ -120,9 +128,19 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
 
         jButtonCadastrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
 
-        jButtonAlterar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jButtonAlterar.setText("Alterar Dados");
+        jButtonCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -183,7 +201,7 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
                         .addGap(107, 107, 107)
                         .addComponent(jButtonCadastrar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonAlterar)))
+                        .addComponent(jButtonCancelar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -235,10 +253,10 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrar)
-                    .addComponent(jButtonAlterar))
+                    .addComponent(jButtonCancelar))
                 .addContainerGap())
         );
 
@@ -255,9 +273,20 @@ public class CadFuncionarios extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        System.out.println("Fechar Aqui!");
+        this.dispose();
+        telaAnterior.setEnabled(false);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

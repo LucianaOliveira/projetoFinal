@@ -140,6 +140,11 @@ public class CadClientes extends javax.swing.JInternalFrame {
 
         jButtonCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jTextFieldRua.setToolTipText("Informe a Rua");
 
@@ -335,6 +340,13 @@ public class CadClientes extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"Ocorreu um erro!","Aviso",JOptionPane.ERROR_MESSAGE );
         }
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        System.out.println("Fechar aqui!");
+        this.dispose();
+        telaAnterior.setEnabled(false);
+        
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;

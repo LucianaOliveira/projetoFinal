@@ -9,14 +9,22 @@ package view;
  * @author Luciana_2
  */
 public class CadFornecedores extends javax.swing.JInternalFrame {
-
+       private Principal telaAnterior;
     /**
      * Creates new form CadFornecedores
      */
     public CadFornecedores() {
         initComponents();
     }
-
+     
+    
+    
+    
+    public CadFornecedores(Principal telaAnterior){
+        this();
+        //construtor
+        this.telaAnterior = telaAnterior;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,7 +59,7 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
         jLabelEmail = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jButtonCadastrar = new javax.swing.JButton();
-        jButtonAD = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
 
         setTitle("Cadastro de Fornecedores");
         setToolTipText("Informe o nome da rua");
@@ -117,8 +125,13 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
         jButtonCadastrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
 
-        jButtonAD.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jButtonAD.setText("Alterar dados");
+        jButtonCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,7 +193,7 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jButtonCadastrar)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jButtonAD))
+                                            .addComponent(jButtonCancelar))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
@@ -239,18 +252,25 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrar)
-                    .addComponent(jButtonAD))
+                    .addComponent(jButtonCancelar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        System.out.println("Fechar aqui!");
+        this.dispose();
+        telaAnterior.setEnabled(false);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAD;
     private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JLabel jLabelBairro;
     private javax.swing.JLabel jLabelCEP;
     private javax.swing.JLabel jLabelCNPJ;

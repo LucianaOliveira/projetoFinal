@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Date;
+
 
 public class Funcionarios {
     
@@ -14,11 +16,13 @@ public class Funcionarios {
     private Endereco endereco;
     private String telefone;
     private String status;
+    private Date datanascimento;
+    private Date dataadmissao;
     
     
     
     public Funcionarios(String nome, String cpf, String rg, Cargo cargo, 
-             Endereco endereco,String telefone, String status){
+             Endereco endereco,String telefone, String status, Date datanascimento, Date dataadmissao){
         
         this.nome = nome;
         this.cpf = cpf;
@@ -27,6 +31,8 @@ public class Funcionarios {
         this.telefone = telefone;
         this.status = status;
         this.endereco = endereco;
+        this.datanascimento = datanascimento;
+        this.dataadmissao = dataadmissao;
        
         
         
@@ -96,6 +102,22 @@ public class Funcionarios {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getDatanascimento() {
+        return datanascimento;
+    }
+
+    public void setDatanascimento(Date datanascimento) {
+        this.datanascimento = datanascimento;
+    }
+
+    public Date getDataadmissao() {
+        return dataadmissao;
+    }
+
+    public void setDataadmissao(Date dataadmissao) {
+        this.dataadmissao = dataadmissao;
     }
 
    

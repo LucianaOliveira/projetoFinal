@@ -16,7 +16,7 @@ public class VendedorDao {
     
     private Connection con = ConectaBanco.getConexao();
     
-    public void addVendedor(Vendedor vendedor){
+    public Integer addVendedor(Vendedor vendedor){
         
         PreparedStatement ps = null;
         String sql = "insert into vendedor (cod_vendedor, nome,comissao) values(?,?,?)";
@@ -32,6 +32,7 @@ public class VendedorDao {
         }catch(SQLException ex){
             ex.printStackTrace();
         }
+        return null;
         
         
     }

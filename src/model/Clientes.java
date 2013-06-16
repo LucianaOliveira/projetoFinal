@@ -1,6 +1,8 @@
 
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author Luciana_2
@@ -13,12 +15,13 @@ public class Clientes {
     private Endereco endereco;
     private String telefone;
     private String status;
+    private Date datacadastro;
     
    
     
            
     public Clientes(String razaosocial, String nomefantasia,String dados,
-            Endereco endereco, String telefone, String status){
+            Endereco endereco, String telefone, String status, Date datacadastro){
         
         this.razaosocial = razaosocial;
         this.nomefantasia = nomefantasia;
@@ -26,6 +29,7 @@ public class Clientes {
         this.telefone = telefone;
         this.status = status;
         this.endereco = endereco;
+        this.datacadastro = datacadastro;
         
     }
 
@@ -84,6 +88,14 @@ public class Clientes {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getDatacadastro() {
+        return datacadastro;
+    }
+
+    public void setDatacadastro(Date datacadastro) {
+        this.datacadastro = datacadastro;
     }
 
     

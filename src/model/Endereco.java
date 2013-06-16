@@ -8,7 +8,6 @@ package model;
 public class Endereco {
     private String rua;
     private String numero;
-    private int id_endereco;
     private String cep;
     private String complemento;
     private String bairro;
@@ -16,7 +15,7 @@ public class Endereco {
     private String estado;
     
     public Endereco (String rua, String numero, String cep, String complemento, 
-            String bairro, String cidade,int endereco, String estado){
+            String bairro, String cidade, String estado){
         
         
         
@@ -26,7 +25,6 @@ public class Endereco {
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
-        this.id_endereco = endereco;
         this.estado = estado;
     }
 
@@ -52,15 +50,7 @@ public class Endereco {
 
   
 
-    public int getId_endereco() {
-        return id_endereco;
-    }
-
-    public void setId_endereco(int id_endereco) {
-        this.id_endereco = id_endereco;
-    }
-
-    
+  
 
     public String getCep() {
         return cep;

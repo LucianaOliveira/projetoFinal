@@ -4,6 +4,15 @@
  */
 package view;
 
+import dao.ClientesDao;
+import dao.ConectaBanco;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Luciana_2
@@ -69,6 +78,11 @@ public class CadClientes extends javax.swing.JInternalFrame {
 
         jButtonCadastrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
 
         jButtonAlterar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonAlterar.setText("Alterar Dados");
@@ -198,7 +212,7 @@ public class CadClientes extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAlterar)
                     .addComponent(jButtonCadastrar))
@@ -218,6 +232,36 @@ public class CadClientes extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        //campo obrigatorio
+        if(jTextFieldRS.getText().equals("")){
+            //quando der erro ele volta no campo errado
+            jTextFieldRS.requestFocus();
+            JOptionPane.showMessageDialog(null,"O campo razão social é obrigatório!","Aviso",JOptionPane.WARNING_MESSAGE );
+            return ;
+    }
+            //campo obrigatorio
+        if(jTextFieldDados.getText().equals("")){
+            //quando der erro ele volta no campo errado
+            jTextFieldDados.requestFocus();
+            JOptionPane.showMessageDialog(null,"O campo razão social é obrigatório!","Aviso",JOptionPane.WARNING_MESSAGE );
+            return ;    
+        }
+        try{
+            Connection obriga = new ConectaBanco().getConexao();
+            String sql = "insert into clientes(razaosocial, dados) values(?,?)";
+            PreparedStatement ps = obriga.prepareStatement(sql);
+            ps.setString(1, jTextFieldRS.getText());
+            ps.setString(2, jTextFieldDados.getText());
+            ps.executeUpdate();
+            ps.close();
+            obriga.close();
+            JOptionPane.showMessageDialog(null, "Dados salvos!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        }catch(Exception err){
+            JOptionPane.showMessageDialog(null,"Ocorreu um erro!","Aviso",JOptionPane.ERROR_MESSAGE );
+        }
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAlterar;

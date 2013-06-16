@@ -19,7 +19,7 @@ public class EnderecoDao {
     private Connection con = ConectaBanco.getConexao();
     
     
-    public void addEndereco(Endereco endereco){
+    public Integer addEndereco(Endereco endereco){
         PreparedStatement ps = null;
         
         String sql = "insert into Endereco(rua,numero,cep,complemento,bairro,cidade,estado ) values (?,?,?,?,?,?,?)";
@@ -35,117 +35,35 @@ public class EnderecoDao {
             ps.setString(7, endereco.getCidade());
             ps.setString(8, endereco.getEstado());
             ps.execute();
-            
-            
-            
-            
-            
+            return getLastEndereco();       
+                     
         }catch(SQLException ex){
             ex.printStackTrace();
-        }
+            return 0;
     }
-    public Integer pegarID(){
-        
-        String sql = "select id_endereco from endereco order by id_endereco";
-        ResultSet rs = null;
-        try {
-            PreparedStatement psConsulta = con.prepareStatement(sql);
-            rs = psConsulta.executeQuery();
-            int id;
-            rs.next();
-            
-             id =   rs.getInt("id_endereco");
-            
-              return id;
-       
-        } catch (SQLException ex) {
-            
-            System.out.println("Erro ao pegar IdEndereco!");
-        
-        }
-        
-        return 0;
-      
     }
-    
-    
-    public ArrayList<Endereco> getEnderecos(){
-        ArrayList<Endereco> enderecos = new ArrayList<>();
-        
-        ResultSet rs = null;
+    private Integer getLastEndereco() {
         PreparedStatement ps = null;
-        String sql = "select * from endereco";
+        ResultSet rs = null;
         
-        try{
-            ps = con.prepareStatement(sql);
+        String sql = "select max(id) from endereco";
+        try {
+            ps= con.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next()){
-                enderecos.add(getEnderecosFromSql(rs));
+            
+            if(rs.next()){
+                return rs.getInt(1);
+            
             }
             
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
+            return 0;
             
-        }return enderecos;
-    }
-    
-    private Endereco getEnderecoFromSql(ResultSet rs, int id_endereco){
-        
-        String rua = null;
-        String numero = null;
-        String cep = null;
-        String complemento = null;
-        String bairro = null;
-        String cidade = null;
-        String estado = null;
-        
-        try{
-            
-            rua = rs.getString(2);
-            numero = rs.getString(3);
-            cep = rs.getString(4);
-            complemento = rs.getString(5);
-            bairro = rs.getString(6);
-            cidade = rs.getString(7);
-            estado = rs.getString(8);
-            
-            
-        }catch(SQLException ex){
-            ex.printStackTrace();
+        }return null;
             
         }
-        return new Endereco(rua, numero, cep, complemento, bairro, cidade, id_endereco, estado);
         
         
-    }
-    
-    public void updateEnderecoByCep(Endereco endereco){
-        
-        PreparedStatement ps = null;
-        String sql = "update endereco set rua=?, numero=?, complemento=?, bairro=?, cidade=?,estado=? where cep=?";
-        
-        
-        try{
-            ps = con.prepareStatement(sql);
-            ps.setString(1, endereco.getRua());
-            ps.setString(2, endereco.getNumero());
-            ps.setString(3, endereco.getComplemento());
-            ps.setString(4, endereco.getBairro());
-            ps.setString(5, endereco.getCidade());
-            ps.setString(6, endereco.getEstado());
-            ps.setString(7, endereco.getCep());
-            
-            
-            
-        }catch(SQLException ex){
-            ex.printStackTrace();
-            
-        }
-    }
-    
-
-    private Endereco getEnderecosFromSql(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+      
 }

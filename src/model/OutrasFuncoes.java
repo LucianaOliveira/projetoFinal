@@ -7,12 +7,12 @@ package model;
  */
 public class OutrasFuncoes {
     
-    private Integer cod;
+    private Integer cod_funcoes;
     private String nome;
     private Double salario;
     
-    public OutrasFuncoes(Integer cod, String nome, Double salario){
-        this.cod = cod;
+    public OutrasFuncoes(Integer cod_funcoes, String nome, Double salario){
+        this.cod_funcoes = cod_funcoes;
         this.nome = nome;
         this.salario = salario;
     }
@@ -20,15 +20,14 @@ public class OutrasFuncoes {
     public OutrasFuncoes() {
     }
 
-    public Integer getCod() {
-        return cod;
+    public Integer getCod_funcoes() {
+        return cod_funcoes;
     }
 
-    public void setCod(Integer cod) {
-        this.cod = cod;
+    public void setCod_funcoes(Integer cod_funcoes) {
+        this.cod_funcoes = cod_funcoes;
     }
 
-    
 
   
 

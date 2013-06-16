@@ -19,7 +19,7 @@ public class OutrasFuncoesDao {
     
     private Connection con = ConectaBanco.getConexao();
     
-    public void addOutrasFuncoes(OutrasFuncoes outrasfuncoes){
+    public Integer addOutrasFuncoes(OutrasFuncoes outrasfuncoes){
         
         PreparedStatement ps = null;
         String sql ="insert into outrasfuncoes(cod,nome,salario) values(?,?,?)";
@@ -34,6 +34,7 @@ public class OutrasFuncoesDao {
         }catch(SQLException ex){
             ex.printStackTrace();
         }
+        return null;
         
     }
     

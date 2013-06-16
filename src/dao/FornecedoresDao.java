@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Endereco;
 import model.Fornecedores;
 
@@ -18,13 +19,14 @@ public class FornecedoresDao {
     
     private Connection con = ConectaBanco.getConexao();
     
-    EnderecoDao enderecoDao = new EnderecoDao();
+    private EnderecoDao enderecoDao = new EnderecoDao();
     
     
     public void addFornecedores(Fornecedores fornecedores){
+        Integer id_endereco = enderecoDao.addEndereco(fornecedores.getEndereco());
         PreparedStatement ps = null;
         
-        String sql = "insert into fornecedores (razaosocial, nomefantasia, cnpj,endereco,telefone, email) values(?,?,?,?,?,?)";
+        String sql = "insert into fornecedores (razaosocial, nomefantasia, cnpj,endereco,telefone, email,id_endereco) values(?,?,?,?,?,?,?)";
         
         
         try{
@@ -32,10 +34,11 @@ public class FornecedoresDao {
             ps.setString(1,fornecedores.getRazaosocial() );
             ps.setString(2, fornecedores.getNomefantasia());
             ps.setString(3, fornecedores.getCnpj());
-            ps.setInt(4, enderecoDao.pegarID());
-            ps.setString(5, fornecedores.getTelefone());
-            ps.setString(6, fornecedores.getEmail());
+            ps.setString(4, fornecedores.getTelefone());
+            ps.setString(5, fornecedores.getEmail());
+            ps.setInt(6, id_endereco);
             ps.execute();
+            JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
             
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -75,9 +78,15 @@ public class FornecedoresDao {
         String razaosocial = null;
         String nomefantasia = null;
         String cnpj = null;
-        Endereco endereco = null;
         String telefone = null;
         String email = null;
+        String rua = null;
+        String numero = null;
+        String cep = null;
+        String complemento = null;
+        String bairro = null;
+        String cidade = null;
+        String estado = null;
         
         try{
             razaosocial = rs.getString(2);

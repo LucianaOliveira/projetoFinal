@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.OutrasFuncoes;
 
 /**
@@ -22,14 +24,15 @@ public class OutrasFuncoesDao {
     public Integer addOutrasFuncoes(OutrasFuncoes outrasfuncoes){
         
         PreparedStatement ps = null;
-        String sql ="insert into outrasfuncoes(cod,nome,salario) values(?,?,?)";
+        String sql = "insert into outrasfuncoes(cod_funcao,nome,salario) values(?,?,?)";
         
         try{
             ps = con.prepareStatement(sql);
-            ps.setInt(1, outrasfuncoes.getCod());
+            ps.setInt(1, outrasfuncoes.getCod_funcoes());
             ps.setString(2, outrasfuncoes.getNome());
             ps.setDouble(3, outrasfuncoes.getSalario());
             ps.execute();
+            return getLastOutrasFuncoes();
             
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -37,77 +40,30 @@ public class OutrasFuncoesDao {
         return null;
         
     }
-    
-    public int CodOF(){
-        
-        String sql ="select cod from outrasfuncoes order by cod";
-        ResultSet rs = null;
-        
-        try{
-            PreparedStatement psConsulta = con.prepareStatement(sql);
-            rs = psConsulta.executeQuery();
-            int cod;
-            rs.next();
-            cod = rs.getInt("cod");
-            return cod;
-            
-        }catch(SQLException ex){
-            System.out.println("Erro ao inserir codigo do funcionario");
-            
-        }return 0;
-        
-    }
-    
-    
-    public ArrayList<OutrasFuncoes> getOutraFuncao(){
-        ArrayList<OutrasFuncoes> outrafuncao = new ArrayList<>();
-        
-        ResultSet rs = null;
+    private Integer getLastOutrasFuncoes() {
         PreparedStatement ps = null;
+        ResultSet rs = null;
         
-        String sql = "select * from outrasfuncoes";
-        
-        try{
+        String sql = "select cod_funcao from outrasfuncoes order by cod_funcao";
+        try {
             ps = con.prepareStatement(sql);
-            ps.executeQuery();
-            while(rs.next()){
-                outrafuncao.add(getOutraFuncaoFromSql(rs));
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                return rs.getInt(1);
             }
             
-        }catch(SQLException ex){
+            
+        } catch (SQLException ex) {
             ex.printStackTrace();
-        }return outrafuncao;
-        
-        
+            return 0;
+        }return null;
     }
     
-    private OutrasFuncoes getOutraFuncaoFromSql(ResultSet rs){
-        Integer cod = null;
-        String nome = null;
-        Double salario = null;
-        
-        try{
-            cod = rs.getInt(1);
-            nome = rs.getString(2);
-            salario = rs.getDouble(3);
-        }catch(SQLException ex){
-            ex.printStackTrace();
-            
-        }return new OutrasFuncoes(cod, nome, salario);
-    }
     
-    public void updateOutrasFuncoesByCod(OutrasFuncoes outrasfuncoes){
-        PreparedStatement ps = null;
-        String sql = "update outrasfuncoes set nome=?, salario=? where cod=?";
-        
-        try{
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, outrasfuncoes.getCod());
-            ps.setString(2, outrasfuncoes.getNome());
-            ps.setDouble(3, outrasfuncoes.getSalario());
-            
-        }catch(SQLException ex){
-            ex.printStackTrace();
-        }
-    }
+    
+    
+    
+
+    
 }

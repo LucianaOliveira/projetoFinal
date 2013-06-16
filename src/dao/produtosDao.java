@@ -9,7 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.EstoqueProduto;
+import model.Fornecedores;
+
 import model.Produtos;
 
 /**
@@ -21,13 +24,16 @@ public class produtosDao {
     private Connection con = ConectaBanco.getConexao();
     
     EstoqueprodutoDao estoqueprodutoDao = new EstoqueprodutoDao();
+    FornecedoresDao fornecedoresDao = new FornecedoresDao();
     
     
     public void addProdutos(Produtos produtos){
+        Integer codestoque = = estoqueprodutoDao.addEstoqueProduto(produtos.getEstoque());
+        String cnpj = fornecedoresDao.addFornecedores(produtos.getFornecedor());
         
         PreparedStatement ps = null;
         
-        String sql = "insert into produtos(codigo, nome, descrição,cod_estoque, preço,status, tipo) values(?,?,?,?,?,?,?)";
+        String sql = "insert into produtos(codigo, nome, descrição,cod_estoque, preço,status, tipo, cnpj) values(?,?,?,?,?,?,?,?)";
         
         try{
             ps = con.prepareStatement(sql);
@@ -38,8 +44,9 @@ public class produtosDao {
             ps.setDouble(5, produtos.getPreço());
             ps.setString(6, produtos.getStatus());
             ps.setString(7, produtos.getTipo());
+            ps.setString(8, cnpj);
             ps.execute();
-            
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
             
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -95,7 +102,8 @@ public class produtosDao {
         }catch(SQLException ex){
             ex.printStackTrace();
         }
-        return new Produtos(codigo, nome, descricao, estoque, preco, status, tipo);
+        Fornecedores fornecedores = new Fornecedores(descricao, nome, tipo, null, tipo, tipo)
+        return new Produtos(codigo, nome, descricao, estoque, preco, status, tipo, null)
        
         
     }

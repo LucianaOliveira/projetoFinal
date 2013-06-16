@@ -1,6 +1,8 @@
 
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author Luciana_2
@@ -8,11 +10,25 @@ package model;
 public class Vendedor {
     private Integer cod_vendedor;
     private String nome;
-    private Double comissao;
+    private String cpf;
+    private String rg;
+    private Endereco endereco;
+    private String telefone;
+    private Date datanascimento;
+    private Date dataadmissao;
+    private Comissao comissao;
     
-    public Vendedor(Integer cod_vendedor, String nome, Double comissao){
+    
+    public Vendedor(Integer cod_vendedor, String nome, String cpf, String rg, 
+             Endereco endereco,String telefone, Date datanascimento, Date dataadmissao, Comissao comissao){
         this.cod_vendedor = cod_vendedor;
         this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.datanascimento = datanascimento;
+        this.dataadmissao = dataadmissao;
         this.comissao = comissao;
     }
 
@@ -35,13 +51,66 @@ public class Vendedor {
         this.nome = nome;
     }
 
-    public Double getComissao() {
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+  
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+ 
+
+    public Date getDatanascimento() {
+        return datanascimento;
+    }
+
+    public void setDatanascimento(Date datanascimento) {
+        this.datanascimento = datanascimento;
+    }
+
+    public Date getDataadmissao() {
+        return dataadmissao;
+    }
+
+    public void setDataadmissao(Date dataadmissao) {
+        this.dataadmissao = dataadmissao;
+    }
+
+    public Comissao getComissao() {
         return comissao;
     }
 
-    public void setComissao(Double comissao) {
+    public void setComissao(Comissao comissao) {
         this.comissao = comissao;
     }
+
     
     
     

@@ -124,6 +124,11 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
 
         jButtonCadastrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButtonCancelar.setText("Cancelar");
@@ -252,7 +257,7 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrar)
                     .addComponent(jButtonCancelar))
@@ -267,6 +272,10 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
         this.dispose();
         telaAnterior.setEnabled(false);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;

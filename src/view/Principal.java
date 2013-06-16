@@ -101,7 +101,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Funcionários");
+        jMenu2.setText("Vendedores");
 
         jMenuCadFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         jMenuCadFuncionarios.setText("Cadastro");
@@ -114,7 +114,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu2.add(jSeparator2);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem4.setText("Lista Funcionários");
+        jMenuItem4.setText("Lista Vendedores");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -209,7 +209,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadFuncionariosActionPerformed
         this.setEnabled(false);
-        new CadFuncionarios().setVisible(true);
+        new CadVendedor().setVisible(true);
     }//GEN-LAST:event_jMenuCadFuncionariosActionPerformed
 
     private void jMenuItemCadFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadFornecedoresActionPerformed

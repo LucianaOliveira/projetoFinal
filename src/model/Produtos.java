@@ -14,9 +14,10 @@ public class Produtos {
     private Double preço;
     private String status;
     private String tipo;
+    private Fornecedores fornecedor;
     
     public Produtos(Integer codigo, String nome, String descrição, EstoqueProduto estoque,
-            Double preço,String status,String tipo){
+            Double preço,String status,String tipo, Fornecedores fornecedor){
         this.codigo = codigo;
         this.nome = nome;
         this.descrição = descrição;
@@ -24,6 +25,8 @@ public class Produtos {
         this.preço = preço;
         this.status = status;
         this.tipo = tipo;
+        this.fornecedor = fornecedor;
+        
         
     }
 
@@ -86,6 +89,14 @@ public class Produtos {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Fornecedores getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedores fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
   

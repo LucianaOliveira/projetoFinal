@@ -22,7 +22,7 @@ public class FornecedoresDao {
     private EnderecoDao enderecoDao = new EnderecoDao();
     
     
-    public void addFornecedores(Fornecedores fornecedores){
+    public String addFornecedores(Fornecedores fornecedores){
         Integer id_endereco = enderecoDao.addEndereco(fornecedores.getEndereco());
         PreparedStatement ps = null;
         
@@ -44,7 +44,7 @@ public class FornecedoresDao {
             ex.printStackTrace();
             
             
-        }
+        }return null;
         
         
         

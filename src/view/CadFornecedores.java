@@ -4,14 +4,19 @@
  */
 package view;
 
+import dao.ClientesDao;
+import dao.FornecedoresDao;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import model.Endereco;
+import model.Fornecedores;
 
 /**
  *
  * @author Luciana_2
  */
 public class CadFornecedores extends javax.swing.JInternalFrame {
-       private Principal telaAnterior;
+       
     /**
      * Creates new form CadFornecedores
      */
@@ -19,14 +24,7 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
         initComponents();
     }
      
-    
-    
-    
-    public CadFornecedores(Principal telaAnterior){
-        this();
-        //construtor
-        this.telaAnterior = telaAnterior;
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -280,7 +278,36 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-        // TODO add your handling code here:
+        String nomefantasia = jTextFieldNF.getText();
+         String razaosocial = jTextFieldRS.getText();
+         String cnpj = jTextFieldCNPJ.getText();
+        // String datacadastro = jDC.getText();
+       //resgatando os dados dos campos de texto de endereço
+         String rua = jTextFieldRua.getText();
+         String bairro = jTextFieldBairro.getText();
+         String complemento = jTextFieldComplemento.getText();
+         String cidade = jTextFieldCidade.getText();
+         String estado = jTextFieldUF.getText();
+         String cep = jTextFieldCEP.getText();
+         String numero = jTextFieldNumero.getText();
+         
+         
+         Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
+         FornecedoresDao c = new FornecedoresDao();
+         Fornecedores fornecedores = new Fornecedores(razaosocial, nomefantasia, cnpj, endereco, numero, estado);
+         
+         
+         try{
+               FornecedoresDao fd = new FornecedoresDao();
+               fd.addFornecedores(fornecedores);        
+               
+           } catch(SQLException se){
+               JOptionPane.showMessageDialog(null, "O seguinte erro ocorreu: "+se.getMessage(), "AVISO", JOptionPane.ERROR_MESSAGE);
+           }catch(Exception ex){
+               JOptionPane.showMessageDialog(null, "O seguinte erro ocorreu: "+ex.getMessage(), "AVISO", JOptionPane.ERROR_MESSAGE);
+               
+           }
+         
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -23,7 +23,7 @@ public class VendaDao {
     private VendedorDao vendedorDao = new VendedorDao();
     
     
-    public Integer addVenda(Venda venda){
+    public Integer addVenda(Venda venda) throws SQLException, ClassNotFoundException{
         Integer cod_vendedor = vendedorDao.addVendedor(venda.getVendedor());
        
         
@@ -40,7 +40,7 @@ public class VendaDao {
             ps.setInt(5, cod_vendedor);
             ps.execute();
             JOptionPane.showMessageDialog(null, "Venda realizada com sucesso!");
-            return getLastEndereco(); 
+            return getLastVenda(); 
             
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -49,7 +49,7 @@ public class VendaDao {
     
     }
 
-    private Integer getLastEndereco() {
+    private Integer getLastVenda() {
         PreparedStatement ps = null;
         ResultSet rs = null;
         

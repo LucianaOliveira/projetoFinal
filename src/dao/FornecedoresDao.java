@@ -22,7 +22,7 @@ public class FornecedoresDao {
     private EnderecoDao enderecoDao = new EnderecoDao();
     
     
-    public String addFornecedores(Fornecedores fornecedores){
+    public String addFornecedores(Fornecedores fornecedores) throws SQLException,ClassNotFoundException{
         Integer id_endereco = enderecoDao.addEndereco(fornecedores.getEndereco());
         PreparedStatement ps = null;
         

@@ -12,18 +12,18 @@ public class Produtos {
     private String descrição;
     private EstoqueProduto estoque;
     private Double preço;
-    private String status;
+    //private String status;
     private String tipo;
     private Fornecedores fornecedor;
     
     public Produtos(Integer codigo, String nome, String descrição, EstoqueProduto estoque,
-            Double preço,String status,String tipo, Fornecedores fornecedor){
+            Double preço,String tipo, Fornecedores fornecedor){
         this.codigo = codigo;
         this.nome = nome;
         this.descrição = descrição;
         this.estoque = estoque;
         this.preço = preço;
-        this.status = status;
+
         this.tipo = tipo;
         this.fornecedor = fornecedor;
         
@@ -75,13 +75,7 @@ public class Produtos {
         this.preço = preço;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String getTipo() {
         return tipo;

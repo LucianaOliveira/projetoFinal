@@ -27,7 +27,7 @@ public class produtosDao {
     FornecedoresDao fornecedoresDao = new FornecedoresDao();
     
     
-    public void addProdutos(Produtos produtos){
+    public void addProdutos(Produtos produtos) throws SQLException, ClassNotFoundException{
         Integer codestoque =  estoqueprodutoDao.addEstoqueProduto(produtos.getEstoque());
           
         String cnpj = fornecedoresDao.addFornecedores(produtos.getFornecedor());
@@ -43,9 +43,8 @@ public class produtosDao {
             ps.setString(3, produtos.getDescrição());
             ps.setInt(4, codestoque);
             ps.setDouble(5, produtos.getPreço());
-            ps.setString(6, produtos.getStatus());
-            ps.setString(7, produtos.getTipo());
-            ps.setString(8, cnpj);
+            ps.setString(6, produtos.getTipo());
+            ps.setString(7, cnpj);
             ps.execute();
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
             
@@ -117,21 +116,19 @@ public class produtosDao {
             ex.printStackTrace();
         }
         Fornecedores fornecedores = new Fornecedores(razaosocial, nomefantasia, cnpj, null, telefone, email);
-        return new Produtos(codigo, nome, descricao, null, preco, status, tipo, fornecedores);
+        return new Produtos(codigo, nome, descricao, null, preco, tipo, fornecedores);
        
         
     }
     
     public void updateProdutosByCodigo(Produtos produtos){
         PreparedStatement ps = null;
-        String sql = "update produtos set nome=?, preco=?, status=?, tipo=? where codigo=?";
+        String sql = "update produtos set nome=? where codigo=?";
         
         try{
             ps = con.prepareStatement(sql);         
             ps.setString(2, produtos.getNome());
-            ps.setDouble(3, produtos.getPreço());
-            ps.setString(4, produtos.getStatus());
-            ps.setInt(5, produtos.getCodigo());
+            ps.setInt(3, produtos.getCodigo());
             
             
             

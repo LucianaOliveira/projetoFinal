@@ -22,7 +22,7 @@ public class ComissaoDao {
     private VendaDao vendaDao = new VendaDao();
     
     
-    public String addComissao(Comissao comissao){
+    public String addComissao(Comissao comissao) throws SQLException, ClassNotFoundException{
         Integer numero_venda = vendaDao.addVenda(comissao.getVenda());
         
         PreparedStatement ps = null;

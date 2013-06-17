@@ -22,7 +22,7 @@ public class VendedorDao {
     private EnderecoDao enderecoDao = new EnderecoDao();
     private ComissaoDao comissaoDao = new ComissaoDao();
     
-    public Integer addVendedor(Vendedor vendedor){
+    public Integer addVendedor(Vendedor vendedor) throws SQLException, ClassNotFoundException{
         
         Integer id_endereco = enderecoDao.addEndereco(vendedor.getEndereco());
         String comissao = comissaoDao.addComissao(vendedor.getComissao());
@@ -120,7 +120,7 @@ public class VendedorDao {
             ex.printStackTrace();
         }
         Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
-        Comissao comissao = new Comissao(estado, null);
+        Comissao comissao = new Comissao(estado, null)
         return new Vendedor(cod_vendedor, nome, cpf, rg, endereco, telefone, datanascimento, dataadmissao, comissao);
 
    

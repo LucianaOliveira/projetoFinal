@@ -4,7 +4,17 @@
  */
 package view;
 
+import dao.produtosDao;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.Endereco;
+import model.Fornecedores;
+import model.Produtos;
+
 
 /**
  *
@@ -49,6 +59,10 @@ public class CadProdutos extends javax.swing.JInternalFrame {
         jTextFieldPT = new javax.swing.JTextField();
         jButtonCadastrarProd = new javax.swing.JButton();
         jButtonCancelarProd = new javax.swing.JButton();
+        jLabelNF = new javax.swing.JLabel();
+        jTextFieldNF = new javax.swing.JTextField();
+        jTextFieldQ = new javax.swing.JTextField();
+        jLabelQ = new javax.swing.JLabel();
 
         setTitle("Cadastro de Produtos");
 
@@ -86,6 +100,10 @@ public class CadProdutos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabelNF.setText("Nome do Fornecedor:");
+
+        jLabelQ.setText("Quantidade:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,25 +121,38 @@ public class CadProdutos extends javax.swing.JInternalFrame {
                                 .addComponent(jLabelNP)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldNP, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabelVP)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldVP, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabelTP)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldPT))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelVP)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldVP, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelTP)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldPT)))
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelQ)
+                                    .addComponent(jTextFieldQ, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(110, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelDP)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldDP))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jButtonCadastrarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButtonCancelarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelNF))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextFieldNF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(jButtonCadastrarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButtonCancelarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -142,12 +173,18 @@ public class CadProdutos extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelVP)
-                    .addComponent(jTextFieldVP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldVP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelQ))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTP)
-                    .addComponent(jTextFieldPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                    .addComponent(jTextFieldPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelNF)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldNF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrarProd)
                     .addComponent(jButtonCancelarProd))
@@ -158,7 +195,26 @@ public class CadProdutos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCadastrarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarProdActionPerformed
-        // TODO add your handling code here:
+         String codigo = jTextFieldCP.getText();
+         String nome = jTextFieldNP.getText();
+         String descricao = jTextFieldDP.getText();
+         String valor = jTextFieldVP.getText();
+         String tipo = jTextFieldPT.getText();
+         String nf = jTextFieldNF.getText();
+         String quantidade = jTextFieldQ.getText();
+         
+         
+         Fornecedores fornecedores = new Fornecedores(valor, nome, nf, endereco, tipo, nf);
+       
+        
+         produtosDao p = new produtosDao();
+         Produtos produtos = new Produtos(WIDTH, nome, descricao, null, Double.NaN, tipo, fornecedores);
+         
+         p.addProdutos(produtos);
+      
+        jTextFieldCP.setText("");
+        jTextFieldNP.setText("");
+         
     }//GEN-LAST:event_jButtonCadastrarProdActionPerformed
 
     private void jButtonCancelarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarProdActionPerformed
@@ -176,13 +232,17 @@ public class CadProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonCancelarProd;
     private javax.swing.JLabel jLabelCP;
     private javax.swing.JLabel jLabelDP;
+    private javax.swing.JLabel jLabelNF;
     private javax.swing.JLabel jLabelNP;
+    private javax.swing.JLabel jLabelQ;
     private javax.swing.JLabel jLabelTP;
     private javax.swing.JLabel jLabelVP;
     private javax.swing.JTextField jTextFieldCP;
     private javax.swing.JTextField jTextFieldDP;
+    private javax.swing.JTextField jTextFieldNF;
     private javax.swing.JTextField jTextFieldNP;
     private javax.swing.JTextField jTextFieldPT;
+    private javax.swing.JTextField jTextFieldQ;
     private javax.swing.JTextField jTextFieldVP;
     // End of variables declaration//GEN-END:variables
 }

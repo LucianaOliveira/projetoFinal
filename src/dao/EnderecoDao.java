@@ -19,7 +19,7 @@ public class EnderecoDao {
     private Connection con = ConectaBanco.getConexao();
     
     
-    public Integer addEndereco(Endereco endereco){
+    public Integer addEndereco(Endereco endereco) throws SQLException,ClassNotFoundException{
         PreparedStatement ps = null;
         
         String sql = "insert into Endereco(rua,numero,cep,complemento,bairro,cidade,estado ) values (?,?,?,?,?,?,?)";

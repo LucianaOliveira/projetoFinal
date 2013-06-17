@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luciana_2
@@ -268,9 +270,13 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        System.out.println("Fechar aqui!");
-        this.dispose();
-        telaAnterior.setEnabled(false);
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?", "Mensagem de saída!", JOptionPane.YES_NO_OPTION);
+        if(resposta == JOptionPane.YES_OPTION){
+            this.dispose();
+        }else{
+            System.out.println(0);
+            
+        }
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed

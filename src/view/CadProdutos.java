@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luciana_2
@@ -160,9 +162,13 @@ public class CadProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonCadastrarProdActionPerformed
 
     private void jButtonCancelarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarProdActionPerformed
-        System.out.println("Fechar Aqui!");
-        this.dispose();
-        telaAnterior.setEnabled(false);
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?", "Mensagem de saída!", JOptionPane.YES_NO_OPTION);
+        if(resposta == JOptionPane.YES_OPTION){
+            this.dispose();
+        }else{
+            System.out.println(0);
+            
+        }
     }//GEN-LAST:event_jButtonCancelarProdActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadClientes extends javax.swing.JInternalFrame {
     
-    private Principal telaAnterior;
+   // private Principal telaAnterior;
 
     /**
      * Creates new form CadClientes
@@ -33,12 +33,12 @@ public class CadClientes extends javax.swing.JInternalFrame {
         initComponents();
         
     }
-    public CadClientes(Principal telaAnterior){
+   /** public CadClientes(Principal telaAnterior){
         this();
         //construtor
         this.telaAnterior = telaAnterior;
         
-    }
+    } */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,31 +47,7 @@ public class CadClientes extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     
-   /** private void atualizaTabela(){
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        String [] colunas={"razaosocial", "nomefantasia","dados"};
-        DefaultTableModel dtm =new DefaultTableModel (colunas,0);
-        String sql = "select * from cliente";
-        
-        try {
-            ps = ConectaBanco.getConexao().prepareStatement(sql);
-            rs = ps.executeQuery();
-            while(rs.next()){
-                dtm.addRow(new Object[]{
-                rs.getString("razaosocial"),
-                rs.getString("nomefantasia"),
-                rs.getString("dados") 
-               });
-                
-                jTableC
-            }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CadClientes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-       */ 
+   
         
         
     
@@ -106,6 +82,23 @@ public class CadClientes extends javax.swing.JInternalFrame {
         jTextFieldCidade = new javax.swing.JTextField();
 
         setTitle("Cadastro de Clientes");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setToolTipText("Cadastro de Clientes");
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -285,7 +278,7 @@ public class CadClientes extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonCadastrar))
@@ -342,11 +335,21 @@ public class CadClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        System.out.println("Fechar aqui!");
-        this.dispose();
-        telaAnterior.setEnabled(false);
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?", "Mensagem de saída!", JOptionPane.YES_NO_OPTION);
+        if(resposta == JOptionPane.YES_OPTION){
+            this.dispose();
+        }else{
+            System.out.println(0);
+            
+        }
+        
+        //telaAnterior.setEnabled(false);
         
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        System.out.println(0);
+    }//GEN-LAST:event_formInternalFrameClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;

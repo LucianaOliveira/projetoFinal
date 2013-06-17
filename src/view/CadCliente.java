@@ -8,6 +8,7 @@ import dao.ClientesDao;
 import dao.ConectaBanco;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -256,7 +257,7 @@ public class CadCliente extends javax.swing.JInternalFrame {
          String nomefantasia = jTextFieldNF.getText();
          String razaosocial = jTextFieldRS.getText();
          String dados = jTextFieldDados.getText();
-         String datacadastro = jDC.getText();
+        // String datacadastro = jDC.getText();
        //resgatando os dados dos campos de texto de endereço
          String rua = jTextFieldRua.getText();
          String bairro = jTextFieldBairro.getText();
@@ -266,28 +267,47 @@ public class CadCliente extends javax.swing.JInternalFrame {
          String cep = jTextFieldCEP.getText();
          String numero = jTextFieldN.getText();
        
-       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-       Date cadastroConvertido=null;
+      // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+      // Date cadastroConvertido=null;
        
-        try {
-             cadastroConvertido = sdf.parse(datacadastro);
-        } catch (ParseException ex) {
-            Logger.getLogger(CadCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //try {
+          //   cadastroConvertido = sdf.parse(datacadastro);
+        //} catch (ParseException ex) {
+          //  Logger.getLogger(CadCliente.class.getName()).log(Level.SEVERE, null, ex);
+        //}
       //instanciando a classe endereco
         Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
       
        //instanciando a classe clientedao para ter acesso ao método de salvar
         ClientesDao cdao = new ClientesDao();
         //salvando o cliente 
-        Clientes clientes = new Clientes(razaosocial, nomefantasia, dados, endereco, numero, estado, cadastroConvertido);
+        Clientes clientes = new Clientes(razaosocial, nomefantasia, dados, endereco, numero, estado, null);
         
-        cdao.addClientes(clientes);
+        //cdao.addClientes(clientes);
       
-        jTextFieldRS.setText("");
-        jTextFieldDados.setText("");
+       // jTextFieldRS.setText("");
+        //jTextFieldDados.setText("");
         
-        if(jTextFieldRS.getText().equals("")){
+        if(razaosocial.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null, "Campo Razão Social é obrigatório!", "Aviso!", JOptionPane.ERROR_MESSAGE);
+            
+        }
+        
+        
+           try{
+               ClientesDao cd = new ClientesDao();
+               cd.addClientes(clientes);        
+               
+           } catch(SQLException se){
+               JOptionPane.showMessageDialog(null, "O seguinte erro ocorreu: "+se.getMessage(), "AVISO", JOptionPane.ERROR_MESSAGE);
+           }catch(Exception ex){
+               JOptionPane.showMessageDialog(null, "O seguinte erro ocorreu: "+ex.getMessage(), "AVISO", JOptionPane.ERROR_MESSAGE);
+               
+           }
+        
+        
+        /*if(jTextFieldRS.getText().equals("")){
             //quando der erro ele volta no campo errado
             jTextFieldRS.requestFocus();
             JOptionPane.showMessageDialog(null,"O campo razão social é obrigatório!","Aviso",JOptionPane.WARNING_MESSAGE );
@@ -312,7 +332,7 @@ public class CadCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Dados salvos!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }catch(Exception err){
             JOptionPane.showMessageDialog(null,"Ocorreu um erro!","Aviso",JOptionPane.ERROR_MESSAGE );
-        } 
+        } */
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

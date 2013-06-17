@@ -21,21 +21,21 @@ public class ClientesDao {
     
     private EnderecoDao enderecoDao = new EnderecoDao();
     
-    public void addClientes(Clientes clientes){
+    public void addClientes(Clientes clientes)throws SQLException,ClassNotFoundException{
         Integer id_endereco = enderecoDao.addEndereco(clientes.getEndereco());
         PreparedStatement ps = null;
         
-        String sql = "insert into clientes (razaosocial, nomefantasia,dados,id_endereco, telefone,status,datacadastro) values (?,?,?,?,?,?,?)";
+        String sql = "insert into clientes (nomefantasia,razaosocial,dados, id_endereco, telefone,datacadastro)"
+                + "   values (?,?,?,?,?,?)";
         
         try{
             ps = con.prepareStatement(sql);
-            ps.setString(1, clientes.getRazaosocial()); 
-            ps.setString(2, clientes.getNomefantasia()); 
+            ps.setString(1, clientes.getNomefantasia()); 
+            ps.setString(2, clientes.getRazaosocial()); 
             ps.setString(3, clientes.getDados());
-            ps.setInt(4, id_endereco);
-            ps.setString(5, clientes.getTelefone());
-            ps.setString(6, clientes.getStatus());
-            ps.setDate(7, new Date(clientes.getDatacadastro().getTime()));
+            ps.setString(4, clientes.getTelefone());
+            ps.setDate(5, new Date(clientes.getDatacadastro().getTime()));
+            ps.setInt(6, id_endereco);
             ps.execute();
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
        }catch(SQLException ex){

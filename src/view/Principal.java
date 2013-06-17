@@ -5,6 +5,7 @@
 package view;
 
 import javax.swing.JFrame;
+import java.io.IOException;
 
 /**
  *
@@ -25,12 +26,12 @@ public class Principal extends JFrame{
         setLocationRelativeTo(null);
     }
 
-    private void Abrir(){
-        new CadClientes().setVisible(true);
+   // private void Abrir(){
+     //   new CadClientes().setVisible(true);
         
     
     
-}
+//}
     
     
     
@@ -236,7 +237,7 @@ public class Principal extends JFrame{
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadClientesActionPerformed
-            CadClientes cc = new CadClientes();
+            CadCliente cc = new CadCliente();
             this.interno.add(cc);
             cc.show();
         

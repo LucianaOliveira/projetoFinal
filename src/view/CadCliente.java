@@ -9,6 +9,7 @@ import dao.ConectaBanco;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -254,11 +255,13 @@ public class CadCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        
+        
+        
          String nomefantasia = jTextFieldNF.getText();
          String razaosocial = jTextFieldRS.getText();
          String dados = jTextFieldDados.getText();
-        // String datacadastro = jDC.getText();
-       //resgatando os dados dos campos de texto de endereço
+         String datacadastro = jDC.getText();
          String rua = jTextFieldRua.getText();
          String bairro = jTextFieldBairro.getText();
          String complemento = jTextFieldC.getText();
@@ -267,32 +270,46 @@ public class CadCliente extends javax.swing.JInternalFrame {
          String cep = jTextFieldCEP.getText();
          String numero = jTextFieldN.getText();
        
-      // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-      // Date cadastroConvertido=null;
+         
+         DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+         Date dataConvertida = null;
+		 
+		 // Data do Cadastro
+		 try {
+			Date data1 = sdf.parse(datacadastro);
+			dataConvertida = data1;
+			
+		} catch(ParseException e) {
+			e.printStackTrace();
+		}
+         //Date cadastroConvertido=null;
+         
+       //  sdf.setLenient(false);
+         
        
         //try {
-          //   cadastroConvertido = sdf.parse(datacadastro);
+        //    cadastroConvertido = sdf.parse(datacadastro);
         //} catch (ParseException ex) {
           //  Logger.getLogger(CadCliente.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+       // }
       //instanciando a classe endereco
         Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
       
        //instanciando a classe clientedao para ter acesso ao método de salvar
         ClientesDao cdao = new ClientesDao();
         //salvando o cliente 
-        Clientes clientes = new Clientes(razaosocial, nomefantasia, dados, endereco, numero, estado, null);
+        Clientes clientes = new Clientes(razaosocial, nomefantasia, dados, endereco, numero, dataConvertida);
         
         //cdao.addClientes(clientes);
       
        // jTextFieldRS.setText("");
         //jTextFieldDados.setText("");
         
-        if(razaosocial.isEmpty()){
+        //if(razaosocial.isEmpty()){
             
-            JOptionPane.showMessageDialog(null, "Campo Razão Social é obrigatório!", "Aviso!", JOptionPane.ERROR_MESSAGE);
+          //  JOptionPane.showMessageDialog(null, "Campo Razão Social é obrigatório!", "Aviso!", JOptionPane.ERROR_MESSAGE);
             
-        }
+        //}
         
         
            try{

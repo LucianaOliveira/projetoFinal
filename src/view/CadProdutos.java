@@ -204,16 +204,17 @@ public class CadProdutos extends javax.swing.JInternalFrame {
          String quantidade = jTextFieldQ.getText();
          
          
-         Fornecedores fornecedores = new Fornecedores(valor, nome, nf, endereco, tipo, nf);
+         Fornecedores fornecedores = new Fornecedores(valor, nome, nf, null, tipo, nf);
        
         
          produtosDao p = new produtosDao();
          Produtos produtos = new Produtos(WIDTH, nome, descricao, null, Double.NaN, tipo, fornecedores);
          
-         p.addProdutos(produtos);
+          
+         
       
-        jTextFieldCP.setText("");
-        jTextFieldNP.setText("");
+         jTextFieldCP.setText("");
+         jTextFieldNP.setText("");
          
     }//GEN-LAST:event_jButtonCadastrarProdActionPerformed
 

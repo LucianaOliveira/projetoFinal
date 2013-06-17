@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a27c1c0-d1a4-4955-9b43-5453c72eec69">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -24,15 +27,19 @@ FROM
 		<groupHeader>
 			<band height="40">
 				<textField>
-					<reportElement uuid="8614c777-d5c3-4137-8d1f-01ade2d576e4" style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#990099"/>
+					<reportElement uuid="fecb4b71-50a9-4984-887a-71b97022fde4" style="SubTitle" isPrintRepeatedValues="false" x="207" y="16" width="137" height="20" isPrintInFirstWholeBand="true" forecolor="#9900FF" backcolor="#000000"/>
 					<textElement>
-						<font isBold="true"/>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{datapedido}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="8614c777-d5c3-4137-8d1f-01ade2d576e4" style="SubTitle" isPrintRepeatedValues="false" x="11" y="16" width="152" height="24" isPrintInFirstWholeBand="true" forecolor="#9900FF" backcolor="#000000"/>
+					<textElement>
+						<font size="16" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{numero_venda}]]></textFieldExpression>
 				</textField>
-				<rectangle>
-					<reportElement uuid="5162ac9b-cab9-4822-8032-bb9f5392a54d" mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
-				</rectangle>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -42,15 +49,7 @@ FROM
 	<group name="datapedido">
 		<groupExpression><![CDATA[$F{datapedido}]]></groupExpression>
 		<groupHeader>
-			<band height="30">
-				<textField>
-					<reportElement uuid="fecb4b71-50a9-4984-887a-71b97022fde4" style="SubTitle" x="0" y="4" width="460" height="20"/>
-					<textElement>
-						<font size="16" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{datapedido}]]></textFieldExpression>
-				</textField>
-			</band>
+			<band height="30"/>
 		</groupHeader>
 	</group>
 	<background>
@@ -63,9 +62,9 @@ FROM
 				<imageExpression><![CDATA["leaf_banner_violet.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="8ee6e7d4-4012-4e7f-a483-6813b3b509cf" style="Title" x="0" y="13" width="263" height="33"/>
+				<reportElement uuid="8ee6e7d4-4012-4e7f-a483-6813b3b509cf" style="Title" x="23" y="13" width="263" height="33"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Leaf Violet Title]]></text>
+				<text><![CDATA[Relatório de Vendas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="cf1125ba-b4dc-4067-80d4-bd348884f75c" style="SubTitle" x="63" y="46" width="200" height="22"/>
@@ -88,7 +87,7 @@ FROM
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="16" splitType="Stretch">
+		<band height="167" splitType="Stretch">
 			<line>
 				<reportElement uuid="49896e31-6f8e-408c-9226-df1c953ae86e" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
 				<graphicElement>

@@ -16,11 +16,11 @@ public class Vendedor {
     private String telefone;
     private Date datanascimento;
     private Date dataadmissao;
-    private Comissao comissao;
+
     
     
     public Vendedor(Integer cod_vendedor, String nome, String cpf, String rg, 
-             Endereco endereco,String telefone, Date datanascimento, Date dataadmissao, Comissao comissao){
+             Endereco endereco,String telefone, Date datanascimento, Date dataadmissao){
         this.cod_vendedor = cod_vendedor;
         this.nome = nome;
         this.cpf = cpf;
@@ -29,7 +29,7 @@ public class Vendedor {
         this.endereco = endereco;
         this.datanascimento = datanascimento;
         this.dataadmissao = dataadmissao;
-        this.comissao = comissao;
+       
     }
 
     public Vendedor() {
@@ -103,13 +103,6 @@ public class Vendedor {
         this.dataadmissao = dataadmissao;
     }
 
-    public Comissao getComissao() {
-        return comissao;
-    }
-
-    public void setComissao(Comissao comissao) {
-        this.comissao = comissao;
-    }
 
     
     

@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import model.Comissao;
+
 import model.Endereco;
 import model.Vendedor;
 
@@ -20,16 +20,16 @@ public class VendedorDao {
     
     private Connection con = ConectaBanco.getConexao();
     private EnderecoDao enderecoDao = new EnderecoDao();
-    private ComissaoDao comissaoDao = new ComissaoDao();
+ 
     
     public Integer addVendedor(Vendedor vendedor) throws SQLException, ClassNotFoundException{
         
         Integer id_endereco = enderecoDao.addEndereco(vendedor.getEndereco());
-        String comissao = comissaoDao.addComissao(vendedor.getComissao());
+
         
         
         PreparedStatement ps = null;
-        String sql = "insert into vendedor (cod_vendedor, nome,cpf,rg,telefone,id_endereco,datanascimento,dataadmissao,comissao) values(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into vendedor (cod_vendedor, nome,cpf,rg,telefone,id_endereco,datanascimento,dataadmissao) values(?,?,?,?,?,?,?,?,?,?)";
         
         try{
             
@@ -42,7 +42,7 @@ public class VendedorDao {
             ps.setInt(6, id_endereco);
             ps.setDate(7, new Date(vendedor.getDatanascimento().getTime()));
             ps.setDate(8, new Date(vendedor.getDataadmissao().getTime()));
-            ps.setString(9, comissao);          
+          
             ps.execute();
             JOptionPane.showMessageDialog(null, "Vendendor cadastrado com sucesso!");
             
@@ -120,8 +120,8 @@ public class VendedorDao {
             ex.printStackTrace();
         }
         Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
-        Comissao comissao = new Comissao(estado, null)
-        return new Vendedor(cod_vendedor, nome, cpf, rg, endereco, telefone, datanascimento, dataadmissao, comissao);
+       
+        return new Vendedor(cod_vendedor, nome, cpf, rg, endereco, telefone, datanascimento, dataadmissao);
 
    
     }
@@ -135,7 +135,7 @@ public class VendedorDao {
            ps = con.prepareStatement(sql);
            ps.setInt(1, vendedor.getCod_vendedor());
            ps.setString(2, vendedor.getNome());
-           ps.setDouble(3, vendedor.getComissao());
+        
            
        }catch(SQLException ex){
            ex.printStackTrace();

@@ -74,7 +74,6 @@ public class ClientesDao {
         String nomefantasia = null;
         String dados = null;
         String telefone = null;
-        String status = null;
         Date datacadastro = null;
         String rua = null;
         String numero = null;
@@ -90,15 +89,14 @@ public class ClientesDao {
             nomefantasia = rs.getString(3);
             dados = rs.getString(4);           
             telefone = rs.getString(5);
-            status = rs.getString(6);
-            datacadastro = rs.getDate(7);
-            rua = rs.getString(8);
-            numero = rs.getString(9);
-            cep = rs.getString(10);
-            complemento =  rs.getString(11);
-            bairro = rs.getString(12);
-            cidade = rs.getString(13);
-            estado = rs.getString(14);
+            datacadastro = rs.getDate(6);
+            rua = rs.getString(7);
+            numero = rs.getString(8);
+            cep = rs.getString(9);
+            complemento =  rs.getString(10);
+            bairro = rs.getString(11);
+            cidade = rs.getString(12);
+            estado = rs.getString(13);
             
        
             
@@ -107,7 +105,7 @@ public class ClientesDao {
             
         }
         Endereco endereco = new Endereco(rua, numero, cep, complemento, bairro, cidade, estado);
-        return new Clientes(razaosocial, nomefantasia, dados, endereco, telefone, status, datacadastro);
+        return new Clientes(razaosocial, nomefantasia, dados, endereco, telefone, datacadastro);
         
     }
     

@@ -297,6 +297,7 @@ public class CadFornecedores extends javax.swing.JInternalFrame {
          Fornecedores fornecedores = new Fornecedores(razaosocial, nomefantasia, cnpj, endereco, numero, estado);
          
          
+         
          try{
                FornecedoresDao fd = new FornecedoresDao();
                fd.addFornecedores(fornecedores);        

@@ -14,20 +14,17 @@ public class Clientes {
     private String dados;
     private Endereco endereco;
     private String telefone;
-    private String status;
     private Date datacadastro;
     
    
     
            
     public Clientes(String razaosocial, String nomefantasia,String dados,
-            Endereco endereco, String telefone, String status, Date datacadastro){
+            Endereco endereco, String telefone, Date datacadastro){
         
         this.razaosocial = razaosocial;
         this.nomefantasia = nomefantasia;
         this.dados = dados;
-        this.telefone = telefone;
-        this.status = status;
         this.endereco = endereco;
         this.datacadastro = datacadastro;
         
@@ -80,16 +77,6 @@ public class Clientes {
         this.dados = dados;
     }
 
-    
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Date getDatacadastro() {
         return datacadastro;
     }
@@ -97,6 +84,9 @@ public class Clientes {
     public void setDatacadastro(Date datacadastro) {
         this.datacadastro = datacadastro;
     }
+
+   
+    
 
     
             

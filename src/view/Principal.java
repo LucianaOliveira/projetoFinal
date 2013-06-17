@@ -46,6 +46,7 @@ public class Principal extends JFrame{
 
         jPanel1 = new javax.swing.JPanel();
         interno = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
@@ -83,6 +84,10 @@ public class Principal extends JFrame{
 
         interno.setBackground(new java.awt.Color(153, 102, 255));
         interno.setForeground(new java.awt.Color(255, 0, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos2.jpg"))); // NOI18N
+        jLabel1.setBounds(0, 0, 490, 320);
+        interno.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -309,6 +314,7 @@ public class Principal extends JFrame{
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane interno;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
